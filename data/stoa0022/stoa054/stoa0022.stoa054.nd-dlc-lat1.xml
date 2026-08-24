@@ -70,6 +70,16 @@
                     <tei:p>This pointer pattern extracts a part of the text pertaining to a day of the creation narrative.</tei:p>
                 </tei:cRefPattern>
             </tei:refsDecl>
+
+            <tei:refsDecl xml:id="CTS">
+            	<tei:citeStructure match="/TEI/text/body" use="@xml:base">
+            		<tei:citeStructure match="./div[@type='edition']/div[@subtype='book']" use="@n" unit="book" delim=":">
+	            		<tei:citeStructure match="./div[@subtype='section']" use="@n" unit="section" delim=".">
+		            		<tei:citeStructure match="./div[@subtype='subsection']" use="@n" unit="subsection" delim="." n="chunk" />
+		            	</tei:citeStructure>
+            		</tei:citeStructure>
+            	</tei:citeStructure>
+            </tei:refsDecl>
 		</tei:encodingDesc>
 		<tei:profileDesc>
 			<tei:langUsage>
@@ -94,8 +104,8 @@
             <tei:change when="2025-12-12" who="Stephen Bothwell">Automatically adds page numbers corresponding to text in attribute `n`. Includes minor XML formatting adjustments due to rewrite of XML file.</tei:change>
 		</tei:revisionDesc>
 	</tei:teiHeader>
-	<tei:text>
-		<tei:body>
+	<tei:text xml:lang="lat">
+		<tei:body xml:base="urn:cts:latinLit:stoa0022.stoa054.nd-dlc-lat1">
 			<tei:div type="edition" xml:lang="lat" n="urn:cts:latinLit:stoa0022.stoa054.nd-dlc-lat1">
 				<tei:div type="textpart" subtype="day" n="1">
 					<tei:div type="textpart" subtype="section" n="1">
