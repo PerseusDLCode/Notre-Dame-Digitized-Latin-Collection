@@ -69,6 +69,15 @@
                     <tei:p>This pointer pattern extracts books.</tei:p>
                 </tei:cRefPattern>
             </tei:refsDecl>
+
+            <tei:refsDecl xml:id="CTS">
+            	<tei:citeStructure match="/TEI/text/body" use="@xml:base">
+            		<tei:citeStructure match="./div[@type='edition']/div[@subtype='book']" use="@n" unit="book" delim=":">
+	            		<tei:citeStructure match="./div[@subtype='chapter']" use="@n" unit="chapter" delim="." n="chunk">
+		            	</tei:citeStructure>
+            		</tei:citeStructure>
+            	</tei:citeStructure>
+            </tei:refsDecl>
         </tei:encodingDesc>
 		<tei:profileDesc>
 			<tei:langUsage>
@@ -94,8 +103,8 @@
             <tei:change when="2025-12-23" who="Stephen Bothwell">Finishes adding column breaks.</tei:change>
 		</tei:revisionDesc>
 	</tei:teiHeader>
-	<tei:text>
-		<tei:body>
+	<tei:text xml:lang="lat">
+		<tei:body xml:base="urn:cts:latinLit:stoa0380.stoa001.nd-dlc-lat1">
 			<tei:div type="edition" xml:lang="lat" n="urn:cts:latinLit:stoa0380.stoa001.nd-dlc-lat1">
 				<tei:head>L. ANNEI SENECAE, ROMANI SENATORIS AC PHILOSOPHI CLARISSIMI, LIBRI DUO DE CLEMENTIA, AD NERONEM CAESAREM: IO. CALVINI NOVIODUNAEI COMMENTARIIS ILLUSTRATI. PARISIIS APUD LUDOVICUM CYANEUM. 1532.</tei:head>
 				<tei:div type="textpart" subtype="book" n="0">

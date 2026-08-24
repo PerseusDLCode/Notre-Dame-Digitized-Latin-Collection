@@ -65,6 +65,16 @@
                     <tei:p>This pointer pattern extracts books.</tei:p>
                 </tei:cRefPattern>
             </tei:refsDecl>
+
+            <tei:refsDecl xml:id="CTS">
+            	<tei:citeStructure match="/TEI/text/body" use="@xml:base">
+            		<tei:citeStructure match="./div[@type='edition']/div[@subtype='book']" use="@n" unit="book" delim=":">
+	            		<tei:citeStructure match="./div[@subtype='section']" use="@n" unit="section" delim=".">
+	            			<tei:citeStructure match="./div[@subtype='subsection']" use="@n" unit="subsection" delim="." n="chunk" />
+		            	</tei:citeStructure>
+            		</tei:citeStructure>
+            	</tei:citeStructure>
+            </tei:refsDecl>
 		</tei:encodingDesc>
 		<tei:profileDesc>
 			<tei:langUsage>
@@ -86,8 +96,8 @@
             <tei:change when="2026-01-07" who="Stephen Bothwell">Bumps misplaced word from end of 1.7.3 to start of 1.7.4.</tei:change>
 		</tei:revisionDesc>
 	</tei:teiHeader>
-	<tei:text>
-		<tei:body>
+	<tei:text xml:lang="lat">
+		<tei:body xml:base="urn:cts:latinLit:stoa0218.stoa002.nd-dlc-lat1">
 			<tei:div type="edition" xml:lang="lat" n="urn:cts:latinLit:stoa0218.stoa002.nd-dlc-lat1">
 				<tei:head><tei:pb facs="opus-agriculturae_0020" n="1"/>PALLADII RVTILII TAVRI AEMILIANI VIRI INLVSTRIS OPVS AGRICVLTVRAE.</tei:head>
 				<tei:div type="textpart" subtype="book" n="1">
